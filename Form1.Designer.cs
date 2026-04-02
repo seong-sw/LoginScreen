@@ -35,6 +35,8 @@
             lblID_ = new Label();
             lblPW_ = new Label();
             lblErrorMsg = new Label();
+            ckbPWShow = new CheckBox();
+            txtCE = new Button();
             SuspendLayout();
             // 
             // lblAppName
@@ -56,6 +58,7 @@
             txtID.PlaceholderText = "ID";
             txtID.Size = new Size(572, 46);
             txtID.TabIndex = 1;
+            txtID.KeyDown += txtID_KeyDown;
             // 
             // txtPW
             // 
@@ -67,13 +70,14 @@
             txtPW.Size = new Size(572, 46);
             txtPW.TabIndex = 2;
             txtPW.UseSystemPasswordChar = true;
+            txtPW.KeyDown += txtPW_KeyDown;
             // 
             // btnLogin
             // 
             btnLogin.BackColor = Color.RoyalBlue;
             btnLogin.Font = new Font("Pretendard JP Variable", 14F);
             btnLogin.ForeColor = SystemColors.ControlLightLight;
-            btnLogin.Location = new Point(44, 378);
+            btnLogin.Location = new Point(44, 420);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(162, 63);
             btnLogin.TabIndex = 3;
@@ -108,19 +112,46 @@
             lblErrorMsg.AutoSize = true;
             lblErrorMsg.Font = new Font("Pretendard JP Variable", 12F);
             lblErrorMsg.ForeColor = Color.IndianRed;
-            lblErrorMsg.Location = new Point(44, 334);
+            lblErrorMsg.Location = new Point(44, 376);
             lblErrorMsg.Name = "lblErrorMsg";
             lblErrorMsg.Size = new Size(421, 29);
             lblErrorMsg.TabIndex = 6;
             lblErrorMsg.Text = "아이디 혹은 패스워드가 일치하지 않습니다.";
             lblErrorMsg.Visible = false;
             // 
+            // ckbPWShow
+            // 
+            ckbPWShow.AutoSize = true;
+            ckbPWShow.Checked = true;
+            ckbPWShow.CheckState = CheckState.Checked;
+            ckbPWShow.Font = new Font("Pretendard JP Variable", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ckbPWShow.Location = new Point(48, 327);
+            ckbPWShow.Name = "ckbPWShow";
+            ckbPWShow.Size = new Size(171, 33);
+            ckbPWShow.TabIndex = 7;
+            ckbPWShow.Text = "비밀번호 숨김";
+            ckbPWShow.UseVisualStyleBackColor = true;
+            ckbPWShow.CheckedChanged += ckbPWShow_CheckedChanged;
+            // 
+            // txtCE
+            // 
+            txtCE.Font = new Font("Pretendard JP Variable", 12F);
+            txtCE.Location = new Point(476, 326);
+            txtCE.Name = "txtCE";
+            txtCE.Size = new Size(140, 43);
+            txtCE.TabIndex = 8;
+            txtCE.Text = "모두 지우기";
+            txtCE.UseVisualStyleBackColor = true;
+            txtCE.Click += txtCE_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(656, 475);
+            ClientSize = new Size(656, 523);
+            Controls.Add(txtCE);
+            Controls.Add(ckbPWShow);
             Controls.Add(lblErrorMsg);
             Controls.Add(lblPW_);
             Controls.Add(lblID_);
@@ -143,5 +174,7 @@
         private Label lblID_;
         private Label lblPW_;
         private Label lblErrorMsg;
+        private CheckBox ckbPWShow;
+        private Button txtCE;
     }
 }
