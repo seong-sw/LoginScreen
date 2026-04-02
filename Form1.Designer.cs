@@ -158,7 +158,7 @@
             Controls.Add(txtID);
             Controls.Add(lblAppName);
             Name = "Form1";
-            Text = "Form1";
+            Text = "로그인";
             ResumeLayout(false);
             PerformLayout();
         }

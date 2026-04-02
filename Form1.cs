@@ -34,8 +34,8 @@ namespace LoginScreen
             }
             else if (inputID == id && inputPW == pw)
             {
-                MessageBox.Show("로그인 성공.", "로그인", MessageBoxButtons.OK); // 메시지 박스 출력
                 lblErrorMsg.Text = ""; // 오류 메시지 초기화
+                MessageBox.Show("로그인 성공.", "로그인", MessageBoxButtons.OK); // 메시지 박스 출력
             }
             else
             {
