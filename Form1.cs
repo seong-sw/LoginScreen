@@ -26,20 +26,20 @@ namespace LoginScreen
 
             if (!idCheck)
             {
-                lblErrorMsg.Text = "아이디는 1~15자의 영문 대소문자와 숫자만 입력해야 합니다."; // 오류 메시지 설정
+                lblErrorMsg.Visible = true;
             }
-            else if(!pwCheck)
+            else if (!pwCheck)
             {
-                lblErrorMsg.Text = "유효하지 않은 비밀번호입니다."; // 오류 메시지 설정
+                lblErrorMsg.Visible = true;
             }
             else if (inputID == id && inputPW == pw)
             {
-                lblErrorMsg.Text = ""; // 오류 메시지 초기화
+                lblErrorMsg.Visible = false;
                 MessageBox.Show("로그인 성공.", "로그인", MessageBoxButtons.OK); // 메시지 박스 출력
             }
             else
             {
-                lblErrorMsg.Text = "아이디 혹은 비밀번호가 일치하지 않습니다."; // 오류 메시지 설정
+                lblErrorMsg.Visible = true;
             }
         }
 
