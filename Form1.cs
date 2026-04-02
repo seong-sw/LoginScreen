@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace LoginScreen
 {
     public partial class Form1 : Form
@@ -16,15 +18,28 @@ namespace LoginScreen
             string inputID = txtID.Text;
             string inputPW = txtPW.Text;
 
-            if (inputID == id && inputPW == pw)
+            Regex idRegex = new System.Text.RegularExpressions.Regex(@"^[0-9a-zA-Z]{1,15}$");
+            bool idCheck = idRegex.IsMatch(inputID);
+
+            Regex pwRegex = new System.Text.RegularExpressions.Regex(@"^[0-9a-zA-Z]{6,20}$");
+            bool pwCheck = pwRegex.IsMatch(inputPW);
+
+            if (!idCheck)
+            {
+                lblErrorMsg.Text = "아이디는 1~15자의 영문 대소문자와 숫자만 입력해야 합니다."; // 오류 메시지 설정
+            }
+            else if(!pwCheck)
+            {
+                lblErrorMsg.Text = "유효하지 않은 비밀번호입니다."; // 오류 메시지 설정
+            }
+            else if (inputID == id && inputPW == pw)
             {
                 MessageBox.Show("로그인 성공.", "로그인", MessageBoxButtons.OK); // 메시지 박스 출력
-                lblErrorMsg.Visible = false; // 오류 메시지 숨김
+                lblErrorMsg.Text = ""; // 오류 메시지 초기화
             }
             else
             {
-                // MessageBox.Show("로그인 실패.", "로그인", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                lblErrorMsg.Visible = true; //오류 메시지 보이기
+                lblErrorMsg.Text = "아이디 혹은 비밀번호가 일치하지 않습니다."; // 오류 메시지 설정
             }
         }
 

@@ -114,10 +114,8 @@
             lblErrorMsg.ForeColor = Color.IndianRed;
             lblErrorMsg.Location = new Point(44, 376);
             lblErrorMsg.Name = "lblErrorMsg";
-            lblErrorMsg.Size = new Size(421, 29);
+            lblErrorMsg.Size = new Size(0, 29);
             lblErrorMsg.TabIndex = 6;
-            lblErrorMsg.Text = "아이디 혹은 패스워드가 일치하지 않습니다.";
-            lblErrorMsg.Visible = false;
             // 
             // ckbPWShow
             // 
